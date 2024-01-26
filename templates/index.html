@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+    <title>Flask CRUD</title>
+  <style>
+.messages {
+    animation: fadeOut 5s ease forwards; /* 5 seconds duration */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+    </style> 
+    
+</head>
+<body>
+    <h1>Employee Details</h1>
+    <h2 class="messages">{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}</h2>
+    <h3><a href="{{url_for('createuser')}}">Add Users</a></h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>CITY</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </tr>
+        {% for data in datas%}
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.firstname}}</td>
+            <td>{{data.lastname}}</td>
+            <td>{{data.city}}</td>
+            <td><a href="{{url_for('editdetails',id=data.id)}}">Edit</a></td>
+            <td><a href="{{url_for('deletedetails',id=data.id)}}" onclick="return confirm('Are you confirm to delete?')">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+
+</html>

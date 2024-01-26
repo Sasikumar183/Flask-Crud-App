@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: calibri;
+    }
+    body{
+        background-color:gray;
+    }
+    h1{
+        font-size: 40px;
+        width: 116%;
+        margin-left: -48px;
+        color:white;
+        background-color:black;
+        text-shadow: 2px 2px 2px black;
+    }
+    form{
+        padding:50px;
+        border: 2px solid black;
+        width:600px;
+        margin: 50px;
+        background-color: rgb(121, 255, 121);
+        margin-left: 22%;
+        border-radius: 12px;
+        box-shadow: 2px 2px 45px blanchedalmond,8px 8px 30px black  ;
+    }
+    label{
+        font-size: 30px;
+        font-weight: 600;
+        text-shadow: 4px 4px 6px black;
+        color:black;
+    }
+    input{
+        margin-top: 30px;
+        margin-left: 5%;
+        border: none;
+        font-size: 24px;
+        padding-left:30px;
+        background-color: gray;
+        color:white;
+        
+        margin-bottom: 20px;
+        width: 80%;
+        height: 40px;
+        border-radius: 6px; 
+    }
+    input:hover,input:active,input:focus{
+        border-bottom:3px solid black;
+        outline: none;
+        border-right:3px solid black;
+    }
+    button{
+        background-color:black;
+        color: wheat;
+        cursor:pointer;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 25px;
+        border-radius: 10px;
+        margin-left: 35%;
+    }
+    button:hover{
+        background-color: white;
+        color:black;
+    }
+</style>
+</head>
+<body>
+ 
+   
+        <form action="" method="post">
+            <h1 style="text-align: center;margin-bottom: 50px;">Edit User</h1>
+        <label for="">First Name</label>
+        <input type="text" name="fname" value="{{datas.firstname}}" required><br>
+        <label for="">Last Name</label>
+        <input type="text" name="lname" value="{{datas.lastname}}"required><br>
+        <label for="">City</label><br>
+        <input type="text" name="city" value="{{datas.city}}"required><br>
+    <button type="submit">Save details</button>
+    </form>
+
+</body>
+</html>
